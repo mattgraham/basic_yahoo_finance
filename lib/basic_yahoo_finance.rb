@@ -9,7 +9,7 @@ require_relative "basic_yahoo_finance/version"
 module BasicYahooFinance
   # Class to send queries to Yahoo Finance API
   class Query
-    API_URL = "https://query1.finance.yahoo.com"
+    API_URL = "https://query2.finance.yahoo.com"
 
     def initialize(cache_url = nil)
       @cache_url = cache_url
@@ -18,7 +18,7 @@ module BasicYahooFinance
     def quotes(symbols)
       symbols_value = generate_symbols_value(symbols)
       begin
-        url = URI.parse("#{API_URL}/v8/finance/quote?symbols=#{symbols_value}")
+        url = URI.parse("#{API_URL}/v10/finance/quoteSummary/#{symbols_value}?modules=price")
         uri = URI.open(url, "User-Agent" => "BYF/#{BasicYahooFinance::VERSION}")
         process_output(JSON.parse(uri.read))
       rescue OpenURI::HTTPError
