@@ -1,9 +1,9 @@
 /.bundle/
 /.yardoc
 /_yardoc/
-/coverage/*
-!coverage/coverage.svg
+/coverage/
 /doc/
 /pkg/
 /spec/reports/
 /tmp/
+coverage
