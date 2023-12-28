@@ -18,7 +18,7 @@ module BasicYahooFinance
     def quotes(symbols)
       symbols_value = generate_symbols_value(symbols)
       begin
-        url = URI.parse("#{API_URL}/v10/finance/quoteSummary/#{symbols_value}?modules=price")
+        url = URI.parse("#{API_URL}/v10/finance/chart/#{symbols_value}?modules=price")
         uri = URI.open(url, "User-Agent" => "BYF/#{BasicYahooFinance::VERSION}")
         process_output(JSON.parse(uri.read))
       rescue OpenURI::HTTPError
